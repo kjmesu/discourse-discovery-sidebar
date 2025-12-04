@@ -45,11 +45,15 @@
     position: fixed;
     bottom: 1em;
     width: 300px;
-    padding: 1.25em;
-    border: 1px solid var(--primary-low);
-    border-radius: 0.75em;
+    padding: 0 1.25em;
     background: var(--secondary);
     z-index: 10;
+
+    .discovery-sidebar__content {
+      p {
+        font-size: var(--font-down-2-rem);
+      }
+    }
   }
 }
 
