@@ -27,31 +27,28 @@
     display: flex;
     flex-direction: column;
     gap: 1.5em;
-  }
-
-  // Top sidebar - sticks to top
-  .discovery-sidebar {
+    align-self: flex-start;
     position: sticky;
     top: calc(var(--header-offset, 60px) + 1em);
+    max-height: calc(100vh - var(--header-offset, 60px) - 2em);
+  }
+
+  // Top sidebar - sticks to top within column
+  .discovery-sidebar {
     padding: 1.25em;
     border: 1px solid var(--primary-low);
     border-radius: 0.75em;
     background: var(--secondary);
-    max-height: calc(100vh - var(--header-offset, 60px) - 2em);
     overflow-y: auto;
   }
 
-  // Bottom sidebar - fixed to bottom of viewport
+  // Bottom sidebar - sticks to bottom of column
   .discovery-sidebar-bottom {
-    position: fixed;
-    bottom: 1em;
-    right: 1em;
-    width: 300px;
     padding: 1.25em;
     border: 1px solid var(--primary-low);
     border-radius: 0.75em;
     background: var(--secondary);
-    z-index: 10;
+    margin-top: auto;
   }
 }
 
