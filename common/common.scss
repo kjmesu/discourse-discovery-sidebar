@@ -8,7 +8,7 @@
   #list-area {
     flex: 1 1 auto;
     min-width: 0;
-    order: 2;
+    order: 1;
   }
 }
 
@@ -19,7 +19,7 @@
     flex: 0 0 auto;
     width: 300px;
     min-width: 300px;
-    order: 3;
+    order: 2;
     position: sticky;
     top: calc(var(--header-offset, 60px) + 1em);
     align-self: flex-start;
