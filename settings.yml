@@ -11,7 +11,8 @@ discovery_sidebar_content:
     That is all.
 
     Carry on.
-  type: textarea
+  type: string
+  textarea: true
   client: true
 
 discovery_sidebar_footer_enabled:
