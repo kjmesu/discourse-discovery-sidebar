@@ -4,10 +4,10 @@ export default class DiscoverySidebar extends Component {
   <template>
     <aside class="discovery-sidebar">
       <div class="discovery-sidebar__content">
-        <h3>Sidebar Test</h3>
-        <p>This is a test sidebar that stays fixed while scrolling.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <h3>I'm a sidebar!</h3>
+        <p>This is here to let you know that MSJ is gay.</p>
+        <p>That is all.</p>
+        <p>Carry on.</p>
       </div>
     </aside>
   </template>
