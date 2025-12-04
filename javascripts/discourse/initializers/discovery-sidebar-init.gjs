@@ -1,7 +1,6 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import { or } from "discourse/truth-helpers";
-import DiscoverySidebar from "../components/discovery-sidebar";
-import DiscoverySidebarBottom from "../components/discovery-sidebar-bottom";
+import DiscoverySidebarWrapper from "../components/discovery-sidebar-wrapper";
 
 export default {
   name: "discovery-sidebar-init",
@@ -19,10 +18,7 @@ export default {
         "before-list-area",
         <template>
           {{#if (or ttService.displayCardStyle ttService.displayCompactStyle)}}
-            <div class="discovery-sidebar-column">
-              <DiscoverySidebar />
-              <DiscoverySidebarBottom />
-            </div>
+            <DiscoverySidebarWrapper />
           {{/if}}
         </template>
       );

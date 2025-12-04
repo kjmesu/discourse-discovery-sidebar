@@ -20,9 +20,6 @@ export default class PositionFixedToColumn extends Modifier {
     if (column) {
       const rect = column.getBoundingClientRect();
       this.element.style.left = `${rect.left}px`;
-      console.log("Bottom sidebar positioned at:", rect.left);
-    } else {
-      console.warn("Could not find .discovery-sidebar-column parent");
     }
   };
 
