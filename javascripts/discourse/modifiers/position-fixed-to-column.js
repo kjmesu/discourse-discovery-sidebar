@@ -20,6 +20,15 @@ export default class PositionFixedToColumn extends Modifier {
     if (column) {
       const rect = column.getBoundingClientRect();
       this.element.style.left = `${rect.left}px`;
+
+      // If this is the top sidebar, align with navigation controls
+      if (this.element.classList.contains("discovery-sidebar")) {
+        const navContainer = document.querySelector(".navigation-container");
+        if (navContainer) {
+          const navRect = navContainer.getBoundingClientRect();
+          this.element.style.top = `${navRect.bottom + 16}px`;
+        }
+      }
     }
   };
 
