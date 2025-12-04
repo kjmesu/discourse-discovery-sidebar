@@ -26,18 +26,17 @@
     order: 2;
   }
 
-  // Top sidebar - sticks to top as you scroll
+  // Top sidebar - fixed to top of viewport, positioned by JS modifier
   .discovery-sidebar {
-    position: -webkit-sticky;
-    position: sticky;
+    position: fixed;
     top: calc(var(--header-offset, 60px) + 1em);
+    width: 300px;
     padding: 1.25em;
     border: 1px solid var(--primary-low);
     border-radius: 0.75em;
     background: var(--secondary);
     max-height: calc(100vh - var(--header-offset, 60px) - 2em);
     overflow-y: auto;
-    margin-bottom: 1.5em;
     z-index: 1;
   }
 
