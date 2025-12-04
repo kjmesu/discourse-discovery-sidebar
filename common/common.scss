@@ -41,15 +41,17 @@
     overflow-y: auto;
   }
 
-  // Bottom sidebar - sticks to bottom
+  // Bottom sidebar - fixed to bottom of viewport
   .discovery-sidebar-bottom {
-    position: sticky;
+    position: fixed;
     bottom: 1em;
+    right: 1em;
+    width: 300px;
     padding: 1.25em;
     border: 1px solid var(--primary-low);
     border-radius: 0.75em;
     background: var(--secondary);
-    margin-top: auto;
+    z-index: 10;
   }
 }
 
