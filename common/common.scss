@@ -48,6 +48,26 @@
     padding: 1.25em;
     background: var(--secondary);
     z-index: 10;
+    font-size: var(--font-down-2);
+    color: var(--primary-medium);
+    line-height: var(--line-height-small);
+
+    a {
+      color: var(--primary-medium);
+
+      &:hover {
+        color: var(--tertiary);
+      }
+    }
+
+    .discovery-sidebar__separator {
+      margin: 0 0.5em;
+      opacity: 0.5;
+    }
+
+    .discovery-sidebar__copyright {
+      margin: 0.5em 0 0 0;
+    }
   }
 }
 
