@@ -9,7 +9,11 @@ export default class PositionFixedToColumn extends Modifier {
 
   modify(element) {
     this.element = element;
-    this.updatePosition();
+
+    // Initial position with slight delay to ensure DOM is ready
+    setTimeout(() => {
+      this.updatePosition();
+    }, 100);
 
     window.addEventListener("resize", this.updatePosition);
     window.addEventListener("scroll", this.updatePosition);
@@ -17,17 +21,26 @@ export default class PositionFixedToColumn extends Modifier {
 
   updatePosition = () => {
     const column = this.element?.closest(".discovery-sidebar-column");
-    if (column) {
-      const rect = column.getBoundingClientRect();
-      this.element.style.left = `${rect.left}px`;
+    if (!column) return;
 
-      // If this is the top sidebar, align with navigation controls
-      if (this.element.classList.contains("discovery-sidebar")) {
-        const navContainer = document.querySelector(".navigation-container");
-        if (navContainer) {
-          const navRect = navContainer.getBoundingClientRect();
-          this.element.style.top = `${navRect.bottom + 16}px`;
-        }
+    const rect = column.getBoundingClientRect();
+    this.element.style.left = `${rect.left}px`;
+
+    // If this is the top sidebar, set top position relative to navigation
+    if (this.element.classList.contains("discovery-sidebar")) {
+      const navContainer = document.querySelector(".navigation-container");
+      const headerOffset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-offset') || '60');
+
+      if (navContainer) {
+        const navRect = navContainer.getBoundingClientRect();
+        // If nav is below the header, position below nav. Otherwise, below header
+        const topPosition = navRect.bottom > headerOffset
+          ? `${navRect.bottom + 16}px`
+          : `${headerOffset + 16}px`;
+
+        this.element.style.top = topPosition;
+      } else {
+        this.element.style.top = `${headerOffset + 16}px`;
       }
     }
   };
