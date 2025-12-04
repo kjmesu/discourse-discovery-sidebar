@@ -1,0 +1,14 @@
+.topic-thumbnails-card-style,
+.topic-thumbnails-compact {
+  .discovery-sidebar {
+    display: none;
+  }
+
+  .topic-list {
+    flex-direction: column;
+  }
+
+  .topic-list-body {
+    flex: 1 1 auto;
+  }
+}

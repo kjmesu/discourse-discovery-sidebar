@@ -1,0 +1,11 @@
+{
+  "name": "discourse-discovery-sidebar",
+  "about_url": null,
+  "license_url": null,
+  "authors": "kjm",
+  "theme_version": "1.0.0",
+  "minimum_discourse_version": "3.0.0",
+  "component": true,
+  "assets": {},
+  "color_schemes": {}
+}
