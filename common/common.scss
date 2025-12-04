@@ -40,8 +40,8 @@
     z-index: 1;
   }
 
-  // Bottom sidebar - fixed to bottom of viewport, positioned by JS modifier
-  .discovery-sidebar-bottom {
+  // Footer sidebar - fixed to bottom of viewport, positioned by JS modifier
+  .discovery-sidebar-footer {
     position: fixed;
     bottom: 1em;
     width: 300px;
@@ -100,7 +100,7 @@
     }
 
     .discovery-sidebar,
-    .discovery-sidebar-bottom {
+    .discovery-sidebar-footer {
       display: none;
     }
   }

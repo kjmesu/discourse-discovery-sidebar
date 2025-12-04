@@ -1,14 +1,18 @@
 import Component from "@glimmer/component";
+import { htmlSafe } from "@ember/template";
+import { cook } from "discourse/lib/text";
 import positionFixedToColumn from "../modifiers/position-fixed-to-column";
 
 export default class DiscoverySidebar extends Component {
+  get cookedContent() {
+    const markdown = this.args.content || "";
+    return htmlSafe(cook(markdown));
+  }
+
   <template>
     <aside class="discovery-sidebar" {{positionFixedToColumn}}>
       <div class="discovery-sidebar__content">
-        <h3>I'm a sidebar!</h3>
-        <p>This is here to let you know that MSJ is gay.</p>
-        <p>That is all.</p>
-        <p>Carry on.</p>
+        {{this.cookedContent}}
       </div>
     </aside>
   </template>
