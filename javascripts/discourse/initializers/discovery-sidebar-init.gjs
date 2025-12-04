@@ -15,7 +15,7 @@ export default {
       }
 
       api.renderInOutlet(
-        "before-topic-list-body",
+        "before-list-area",
         <template>
           {{#if (or ttService.displayCardStyle ttService.displayCompactStyle)}}
             <DiscoverySidebar />

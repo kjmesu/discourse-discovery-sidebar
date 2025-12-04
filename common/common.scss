@@ -1,21 +1,20 @@
 .topic-thumbnails-card-style,
 .topic-thumbnails-compact {
-  .topic-list {
+  .row.full-width {
     display: flex;
     flex-direction: row;
     gap: 1.5em;
     align-items: flex-start;
   }
 
-  .topic-list-body {
-    flex: 0 1 auto;
-    max-width: 100%;
+  #list-area {
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .discovery-sidebar {
-    flex: 1 1 auto;
-    min-width: 250px;
-    max-width: 400px;
+    flex: 0 0 auto;
+    width: 300px;
     position: sticky;
     top: calc(var(--header-offset, 60px) + 1em);
     align-self: flex-start;
@@ -55,12 +54,12 @@
       display: none;
     }
 
-    .topic-list {
+    .row.full-width {
       flex-direction: column;
     }
 
-    .topic-list-body {
-      flex: 1 1 auto;
+    #list-area {
+      width: 100%;
     }
   }
 }
