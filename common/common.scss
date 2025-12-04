@@ -1,9 +1,12 @@
 // Make the row a flex container when it contains the sidebar
-.row.full-width:has(.discovery-sidebar) {
-  display: flex;
-  flex-direction: row;
-  gap: 1.5em;
-  align-items: flex-start;
+.topic-thumbnails-card-style,
+.topic-thumbnails-compact {
+  .list-container .row.full-width:has(#list-area) {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em;
+    align-items: flex-start;
+  }
 
   #list-area {
     flex: 1 1 auto;
@@ -25,14 +28,6 @@
     background: var(--secondary);
     max-height: calc(100vh - var(--header-offset, 60px) - 2em);
     overflow-y: auto;
-  }
-}
-
-// Sidebar content styles
-.topic-thumbnails-card-style,
-.topic-thumbnails-compact {
-  .discovery-sidebar {
-    // Additional styles if needed for topic-thumbnails context
   }
 
   .discovery-sidebar__content {
@@ -57,16 +52,16 @@
 }
 
 @media (max-width: 1000px) {
-  .row.full-width:has(.discovery-sidebar) {
-    flex-direction: column;
+  .topic-thumbnails-card-style,
+  .topic-thumbnails-compact {
+    .list-container .row.full-width:has(#list-area) {
+      flex-direction: column;
+    }
 
     #list-area {
       width: 100%;
     }
-  }
 
-  .topic-thumbnails-card-style,
-  .topic-thumbnails-compact {
     .discovery-sidebar {
       display: none;
     }
