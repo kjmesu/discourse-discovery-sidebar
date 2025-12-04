@@ -18,39 +18,37 @@
     order: 1;
   }
 
-  // Sidebar column wrapper - sticky container
+  // Sidebar column wrapper - for positioning reference
   .discovery-sidebar-column {
     flex: 0 0 auto;
     width: 300px;
     min-width: 300px;
     order: 2;
+    position: relative;
+  }
+
+  // Top sidebar - sticks to top
+  .discovery-sidebar {
     position: sticky;
     top: calc(var(--header-offset, 60px) + 1em);
-    align-self: flex-start;
+    padding: 1.25em;
+    border: 1px solid var(--primary-low);
+    border-radius: 0.75em;
+    background: var(--secondary);
     max-height: calc(100vh - var(--header-offset, 60px) - 2em);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 1.5em;
-  }
-
-  // Top sidebar
-  .discovery-sidebar {
-    padding: 1.25em;
-    border: 1px solid var(--primary-low);
-    border-radius: 0.75em;
-    background: var(--secondary);
     overflow-y: auto;
-    flex: 0 1 auto;
   }
 
-  // Bottom sidebar - within the sticky column
+  // Bottom sidebar - fixed to bottom of viewport, aligned with column
   .discovery-sidebar-bottom {
+    position: fixed;
+    bottom: 1em;
+    width: 300px;
     padding: 1.25em;
     border: 1px solid var(--primary-low);
     border-radius: 0.75em;
     background: var(--secondary);
-    flex: 0 0 auto;
+    z-index: 10;
   }
 }
 
