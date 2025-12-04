@@ -1,4 +1,5 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
+import { or } from "discourse/truth-helpers";
 import DiscoverySidebar from "../components/discovery-sidebar";
 
 export default {
