@@ -10,11 +10,7 @@
     min-width: 0;
     order: 1;
   }
-}
 
-// Sidebar styles (only shown when topic-thumbnails is active)
-.topic-thumbnails-card-style,
-.topic-thumbnails-compact {
   .discovery-sidebar {
     flex: 0 0 auto;
     width: 300px;
@@ -29,6 +25,14 @@
     background: var(--secondary);
     max-height: calc(100vh - var(--header-offset, 60px) - 2em);
     overflow-y: auto;
+  }
+}
+
+// Sidebar content styles
+.topic-thumbnails-card-style,
+.topic-thumbnails-compact {
+  .discovery-sidebar {
+    // Additional styles if needed for topic-thumbnails context
   }
 
   .discovery-sidebar__content {
