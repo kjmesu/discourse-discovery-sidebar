@@ -24,10 +24,10 @@
     width: 300px;
     min-width: 300px;
     order: 2;
-    position: relative;
+    align-self: flex-start;
   }
 
-  // Top sidebar - sticks to top
+  // Top sidebar - sticks to top as you scroll
   .discovery-sidebar {
     position: sticky;
     top: calc(var(--header-offset, 60px) + 1em);
@@ -37,9 +37,10 @@
     background: var(--secondary);
     max-height: calc(100vh - var(--header-offset, 60px) - 2em);
     overflow-y: auto;
+    margin-bottom: 1.5em;
   }
 
-  // Bottom sidebar - fixed to bottom of viewport, aligned with column
+  // Bottom sidebar - fixed to bottom of viewport, positioned by JS modifier
   .discovery-sidebar-bottom {
     position: fixed;
     bottom: 1em;
