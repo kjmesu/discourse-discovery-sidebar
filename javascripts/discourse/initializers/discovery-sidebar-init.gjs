@@ -19,8 +19,10 @@ export default {
         "before-list-area",
         <template>
           {{#if (or ttService.displayCardStyle ttService.displayCompactStyle)}}
-            <DiscoverySidebar />
-            <DiscoverySidebarBottom />
+            <div class="discovery-sidebar-column">
+              <DiscoverySidebar />
+              <DiscoverySidebarBottom />
+            </div>
           {{/if}}
         </template>
       );
