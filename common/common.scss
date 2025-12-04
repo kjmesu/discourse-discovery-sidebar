@@ -1,12 +1,16 @@
-// Make the row a flex container when it contains the sidebar
-.topic-thumbnails-card-style,
-.topic-thumbnails-compact {
-  .list-container .row.full-width:has(#list-area) {
-    display: flex;
-    flex-direction: row;
-    gap: 1.5em;
-    align-items: flex-start;
-  }
+// Target the parent row when sidebar exists, using body classes as context
+.topic-list.topic-thumbnails-card-style,
+.topic-list.topic-thumbnails-compact {
+  // The topic-list itself can't be a flex container (it's a table)
+  // So we need to target its parent row instead
+}
+
+// Apply flex layout to the row containing both list-area and sidebar
+.list-container .row.full-width:has(.discovery-sidebar) {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5em;
+  align-items: flex-start;
 
   #list-area {
     flex: 1 1 auto;
@@ -29,34 +33,31 @@
     max-height: calc(100vh - var(--header-offset, 60px) - 2em);
     overflow-y: auto;
   }
+}
 
-  .discovery-sidebar__content {
-    h3 {
-      margin: 0 0 0.75em 0;
-      font-size: var(--font-up-1);
-      color: var(--primary);
-      font-weight: 600;
-    }
+.discovery-sidebar__content {
+  h3 {
+    margin: 0 0 0.75em 0;
+    font-size: var(--font-up-1);
+    color: var(--primary);
+    font-weight: 600;
+  }
 
-    p {
-      margin: 0 0 0.75em 0;
-      font-size: var(--font-0);
-      color: var(--primary-medium);
-      line-height: var(--line-height-large);
+  p {
+    margin: 0 0 0.75em 0;
+    font-size: var(--font-0);
+    color: var(--primary-medium);
+    line-height: var(--line-height-large);
 
-      &:last-child {
-        margin-bottom: 0;
-      }
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }
 
 @media (max-width: 1000px) {
-  .topic-thumbnails-card-style,
-  .topic-thumbnails-compact {
-    .list-container .row.full-width:has(#list-area) {
-      flex-direction: column;
-    }
+  .list-container .row.full-width:has(.discovery-sidebar) {
+    flex-direction: column;
 
     #list-area {
       width: 100%;
