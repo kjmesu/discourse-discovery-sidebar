@@ -1,5 +1,6 @@
 import Component from "@glimmer/component";
 import { service } from "@ember/service";
+import { or } from "discourse/truth-helpers";
 import DiscoverySidebar from "./discovery-sidebar";
 import DiscoverySidebarFooter from "./discovery-sidebar-footer";
 
