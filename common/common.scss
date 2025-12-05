@@ -6,7 +6,7 @@
 }
 
 // Apply flex layout to the row containing both list-area and sidebar
-.list-container .row.full-width:has(.discovery-sidebar) {
+.list-container .row.full-width:has(.discovery-sidebar-column) {
   display: flex;
   flex-direction: row;
   gap: 1.5em;
