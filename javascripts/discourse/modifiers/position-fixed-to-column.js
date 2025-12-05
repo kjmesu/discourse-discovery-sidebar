@@ -10,15 +10,10 @@ export default class PositionFixedToColumn extends Modifier {
   modify(element) {
     this.element = element;
 
-    // Initial position with multiple attempts to ensure DOM is fully settled
-    requestAnimationFrame(() => {
+    // Wait for DOM to be fully settled before positioning
+    setTimeout(() => {
       this.updatePosition();
-
-      // Run again after a delay to catch any late-rendering elements
-      setTimeout(() => {
-        this.updatePosition();
-      }, 250);
-    });
+    }, 300);
 
     window.addEventListener("resize", this.updatePosition);
     window.addEventListener("scroll", this.updatePosition);
