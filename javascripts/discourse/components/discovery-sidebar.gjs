@@ -1,12 +1,21 @@
 import Component from "@glimmer/component";
 import { htmlSafe } from "@ember/template";
-import { cook } from "discourse/lib/text";
+import { cookAsync } from "discourse/lib/text";
+import { tracked } from "@glimmer/tracking";
 import positionFixedToColumn from "../modifiers/position-fixed-to-column";
 
 export default class DiscoverySidebar extends Component {
-  get cookedContent() {
+  @tracked cookedContent = "";
+
+  constructor() {
+    super(...arguments);
+    this.cookMarkdown();
+  }
+
+  async cookMarkdown() {
     const markdown = this.args.content || "";
-    return htmlSafe(cook(markdown));
+    const cooked = await cookAsync(markdown);
+    this.cookedContent = htmlSafe(cooked);
   }
 
   <template>
