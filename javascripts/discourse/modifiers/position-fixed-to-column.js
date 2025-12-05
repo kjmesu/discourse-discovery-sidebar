@@ -47,6 +47,9 @@ export default class PositionFixedToColumn extends Modifier {
       } else {
         this.element.style.top = `${headerOffset + 16}px`;
       }
+
+      // Make visible after positioning
+      this.element.classList.add("is-positioned");
     }
   };
 

@@ -29,7 +29,6 @@
   // Top sidebar - fixed to top of viewport, positioned by JS modifier
   .discovery-sidebar {
     position: fixed;
-    top: calc(var(--header-offset, 60px) + 1em);
     width: 300px;
     padding: 1.25em;
     border: 1px solid var(--primary-low);
@@ -38,6 +37,12 @@
     max-height: calc(100vh - var(--header-offset, 60px) - 2em);
     overflow-y: auto;
     z-index: 1;
+    opacity: 0;
+    transition: opacity 0.15s ease-in;
+
+    &.is-positioned {
+      opacity: 1;
+    }
   }
 
   // Footer sidebar - fixed to bottom of viewport, positioned by JS modifier
