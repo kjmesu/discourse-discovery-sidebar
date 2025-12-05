@@ -6,26 +6,34 @@ import DiscoverySidebarFooter from "./discovery-sidebar-footer";
 export default class DiscoverySidebarWrapper extends Component {
   @service siteSettings;
 
-  get sidebarEnabled() {
-    return this.siteSettings.discovery_sidebar_enabled;
+  get showSidebar() {
+    const enabled = this.siteSettings.discovery_sidebar_enabled;
+    console.log("Sidebar enabled:", enabled);
+    return enabled;
   }
 
-  get footerEnabled() {
-    return this.siteSettings.discovery_sidebar_footer_enabled;
+  get showFooter() {
+    const enabled = this.siteSettings.discovery_sidebar_footer_enabled;
+    console.log("Footer enabled:", enabled);
+    return enabled;
   }
 
   get sidebarContent() {
-    return this.siteSettings.discovery_sidebar_content;
+    const content = this.siteSettings.discovery_sidebar_content;
+    console.log("Sidebar content:", content);
+    return content;
   }
 
   <template>
-    <div class="discovery-sidebar-column">
-      {{#if this.sidebarEnabled}}
-        <DiscoverySidebar @content={{this.sidebarContent}} />
-      {{/if}}
-      {{#if this.footerEnabled}}
-        <DiscoverySidebarFooter />
-      {{/if}}
-    </div>
+    {{#if (or this.showSidebar this.showFooter)}}
+      <div class="discovery-sidebar-column">
+        {{#if this.showSidebar}}
+          <DiscoverySidebar @content={{this.sidebarContent}} />
+        {{/if}}
+        {{#if this.showFooter}}
+          <DiscoverySidebarFooter />
+        {{/if}}
+      </div>
+    {{/if}}
   </template>
 }
