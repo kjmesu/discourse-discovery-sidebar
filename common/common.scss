@@ -118,7 +118,8 @@
 
   .discovery-sidebar-recents__card {
     display: flex;
-    gap: 0.75em;
+    flex-direction: column;
+    gap: 0.5em;
     text-decoration: none;
     color: var(--primary);
     padding: 0.75em;
@@ -129,6 +130,11 @@
     &:hover {
       background: var(--primary-low);
     }
+  }
+
+  .discovery-sidebar-recents__top {
+    display: flex;
+    gap: 0.75em;
   }
 
   .discovery-sidebar-recents__info {

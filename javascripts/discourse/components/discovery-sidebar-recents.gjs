@@ -68,31 +68,33 @@ export default class DiscoverySidebarRecents extends Component {
             {{#each this.recentTopics as |topic|}}
               <li class="discovery-sidebar-recents__item">
                 <a href="/t/{{topic.slug}}/{{topic.id}}" class="discovery-sidebar-recents__card">
-                  <div class="discovery-sidebar-recents__info">
-                    {{#if (this.getPoster topic)}}
-                      <div class="discovery-sidebar-recents__header">
-                        <span class="discovery-sidebar-recents__avatar">
-                          <img src={{this.getAvatarUrl topic}} alt={{this.getUsername topic}} class="avatar" loading="lazy" />
-                        </span>
-                        <span class="discovery-sidebar-recents__meta">
-                          <span class="discovery-sidebar-recents__username">{{this.getUsername topic}}</span>
-                          <span class="discovery-sidebar-recents__separator">•</span>
-                          <span class="discovery-sidebar-recents__age">{{ageWithTooltip topic.created_at}}</span>
-                        </span>
+                  <div class="discovery-sidebar-recents__top">
+                    <div class="discovery-sidebar-recents__info">
+                      {{#if (this.getPoster topic)}}
+                        <div class="discovery-sidebar-recents__header">
+                          <span class="discovery-sidebar-recents__avatar">
+                            <img src={{this.getAvatarUrl topic}} alt={{this.getUsername topic}} class="avatar" loading="lazy" />
+                          </span>
+                          <span class="discovery-sidebar-recents__meta">
+                            <span class="discovery-sidebar-recents__username">{{this.getUsername topic}}</span>
+                            <span class="discovery-sidebar-recents__separator">•</span>
+                            <span class="discovery-sidebar-recents__age">{{ageWithTooltip topic.created_at}}</span>
+                          </span>
+                        </div>
+                      {{/if}}
+                      <h4 class="discovery-sidebar-recents__title">{{topic.fancy_title}}</h4>
+                    </div>
+                    {{#if (this.getThumbnailUrl topic)}}
+                      <div class="discovery-sidebar-recents__thumbnail">
+                        <img src={{this.getThumbnailUrl topic}} alt="" loading="lazy" />
                       </div>
                     {{/if}}
-                    <h4 class="discovery-sidebar-recents__title">{{topic.fancy_title}}</h4>
-                    <div class="discovery-sidebar-recents__stats">
-                      <span class="discovery-sidebar-recents__stat">{{topic.post_votes_first_post_count}} upvotes</span>
-                      <span class="discovery-sidebar-recents__separator">•</span>
-                      <span class="discovery-sidebar-recents__stat">{{topic.reply_count}} comments</span>
-                    </div>
                   </div>
-                  {{#if (this.getThumbnailUrl topic)}}
-                    <div class="discovery-sidebar-recents__thumbnail">
-                      <img src={{this.getThumbnailUrl topic}} alt="" loading="lazy" />
-                    </div>
-                  {{/if}}
+                  <div class="discovery-sidebar-recents__stats">
+                    <span class="discovery-sidebar-recents__stat">{{topic.post_votes_first_post_count}} upvotes</span>
+                    <span class="discovery-sidebar-recents__separator">•</span>
+                    <span class="discovery-sidebar-recents__stat">{{topic.reply_count}} comments</span>
+                  </div>
                 </a>
               </li>
             {{/each}}
