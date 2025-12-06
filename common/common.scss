@@ -31,8 +31,8 @@
     position: fixed;
     width: 300px;
     max-width: 300px;
-    padding: 1.25em;
-    border: 1px solid var(--primary-low);
+    // padding: 1.25em;
+    // border: 1px solid var(--primary-low);
     border-radius: 0.75em;
     background: var(--secondary);
     max-height: calc(100vh - var(--header-offset, 60px) - 2em);
@@ -83,7 +83,7 @@
 .discovery-sidebar__content {
   h3 {
     margin: 0 0 0.75em 0;
-    font-size: var(--font-up-1);
+    font-size: var(--font-0);
     color: var(--primary);
     font-weight: 600;
   }
