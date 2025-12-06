@@ -71,6 +71,7 @@
     .discovery-sidebar__separator {
       margin: 0 0.5em;
       opacity: 0.5;
+      font-size: var(--base-font-size-smallest);
     }
 
     .discovery-sidebar__copyright {
@@ -160,6 +161,7 @@
   .discovery-sidebar-recents__meta {
     display: flex;
     align-items: center;
+    font-size: var(--font-down-1);
     gap: 0.35em;
     min-width: 0;
   }
@@ -184,7 +186,7 @@
 
   .discovery-sidebar-recents__title {
     margin: 0;
-    font-size: var(--font-0);
+    font-size: var(--font-down-1);
     font-weight: 500;
     line-height: var(--line-height-medium);
     color: var(--primary);
@@ -199,7 +201,7 @@
     display: flex;
     align-items: center;
     gap: 0.35em;
-    font-size: var(--font-down-1);
+    font-size: var(--font-down-2);
     color: var(--primary-medium);
   }
 
