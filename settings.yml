@@ -18,3 +18,7 @@ discovery_sidebar_content:
 discovery_sidebar_footer_enabled:
   default: true
   client: true
+
+discovery_sidebar_recents_enabled:
+  default: true
+  client: true
