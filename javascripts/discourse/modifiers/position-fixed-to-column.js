@@ -24,7 +24,15 @@ export default class PositionFixedToColumn extends Modifier {
     if (!column) return;
 
     const rect = column.getBoundingClientRect();
-    this.element.style.left = `${rect.left}px`;
+    const mainOutletWrapper = document.querySelector("#main-outlet-wrapper");
+
+    if (!mainOutletWrapper) return;
+
+    const wrapperRect = mainOutletWrapper.getBoundingClientRect();
+
+    // Constrain left position within main-outlet-wrapper
+    const leftPosition = Math.max(rect.left, wrapperRect.left);
+    this.element.style.left = `${leftPosition}px`;
 
     // Handle sidebars (excluding footer)
     if (this.element.classList.contains("discovery-sidebar")) {
@@ -51,6 +59,9 @@ export default class PositionFixedToColumn extends Modifier {
           topPosition = mainRect.bottom + 16;
         }
       }
+
+      // Constrain top position within main-outlet-wrapper
+      topPosition = Math.max(topPosition, wrapperRect.top);
 
       this.element.style.top = `${topPosition}px`;
 
