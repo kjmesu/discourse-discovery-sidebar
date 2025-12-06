@@ -30,15 +30,18 @@
   .discovery-sidebar {
     position: fixed;
     width: 300px;
+    max-width: 300px;
     padding: 1.25em;
     border: 1px solid var(--primary-low);
     border-radius: 0.75em;
     background: var(--secondary);
     max-height: calc(100vh - var(--header-offset, 60px) - 2em);
     overflow-y: auto;
+    overflow-x: hidden;
     z-index: 1;
     opacity: 0;
     transition: opacity 0.15s ease-in;
+    box-sizing: border-box;
 
     &.is-positioned {
       opacity: 1;

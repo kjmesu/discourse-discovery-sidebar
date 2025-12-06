@@ -34,6 +34,11 @@ export default class PositionFixedToColumn extends Modifier {
     const leftPosition = Math.max(rect.left, wrapperRect.left);
     this.element.style.left = `${leftPosition}px`;
 
+    // Calculate maximum width to stay within main-outlet-wrapper
+    const maxWidth = Math.min(300, wrapperRect.right - leftPosition - 16);
+    this.element.style.width = `${maxWidth}px`;
+    this.element.style.maxWidth = `${maxWidth}px`;
+
     // Handle sidebars (excluding footer)
     if (this.element.classList.contains("discovery-sidebar")) {
       const navContainer = document.querySelector(".navigation-container");
