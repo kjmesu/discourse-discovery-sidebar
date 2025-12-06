@@ -35,10 +35,13 @@ export default class DiscoverySidebarRecents extends Component {
                 user = this.store.createRecord("user", userData);
               }
             }
-            // Debug log to see thumbnail structure
-            if (topic.thumbnails) {
-              console.log("Topic thumbnails:", topic.id, topic.thumbnails);
-            }
+            // Debug log to see full topic data
+            console.log("Topic data:", topic.id, {
+              thumbnails: topic.thumbnails,
+              post_votes: topic.post_votes_first_post_count,
+              image_url: topic.image_url,
+              reply_count: topic.reply_count
+            });
             return { ...topic, user };
           })
         );
