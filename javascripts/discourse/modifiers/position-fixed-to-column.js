@@ -73,6 +73,44 @@ export default class PositionFixedToColumn extends Modifier {
       // Make visible after positioning
       this.element.classList.add("is-positioned");
     }
+
+    // Handle footer with smart overflow behavior
+    if (this.element.classList.contains("discovery-sidebar-footer")) {
+      const navContainer = document.querySelector(".navigation-container");
+      const headerOffset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-offset') || '60');
+      const viewportHeight = window.innerHeight;
+      const footerHeight = this.element.getBoundingClientRect().height;
+      const minSpacing = 16;
+      const bottomMargin = 16;
+
+      // Find bottom of last sidebar
+      let lastSidebarBottom = headerOffset + minSpacing;
+      const recentsSidebar = column.querySelector(".discovery-sidebar-recents");
+      const mainSidebar = column.querySelector(".discovery-sidebar:not(.discovery-sidebar-recents)");
+
+      if (recentsSidebar) {
+        lastSidebarBottom = recentsSidebar.getBoundingClientRect().bottom;
+      } else if (mainSidebar) {
+        lastSidebarBottom = mainSidebar.getBoundingClientRect().bottom;
+      }
+
+      // Determine positioning mode
+      const footerTopIfPinned = viewportHeight - footerHeight - bottomMargin;
+      const availableSpace = footerTopIfPinned - lastSidebarBottom - minSpacing;
+
+      if (availableSpace >= 0) {
+        // Bottom-pinned mode: enough space
+        this.element.style.bottom = `${bottomMargin}px`;
+        this.element.style.top = 'auto';
+      } else {
+        // Stacked mode: position below last sidebar
+        this.element.style.top = `${lastSidebarBottom + minSpacing}px`;
+        this.element.style.bottom = 'auto';
+      }
+
+      // Make visible after positioning
+      this.element.classList.add("is-positioned");
+    }
   };
 
   cleanup() {

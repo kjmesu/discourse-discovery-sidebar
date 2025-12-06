@@ -48,10 +48,10 @@
     }
   }
 
-  // Footer sidebar - fixed to bottom of viewport, positioned by JS modifier
+  // Footer sidebar - sticky to bottom with smart overflow behavior, positioned by JS modifier
   .discovery-sidebar-footer {
     position: fixed;
-    bottom: 1em;
+    // bottom position now controlled by JS modifier for smart overflow behavior
     width: 300px;
     padding: 1.25em;
     background: var(--secondary);
@@ -59,6 +59,12 @@
     font-size: var(--font-down-2);
     color: var(--primary-medium);
     line-height: var(--line-height-small);
+    opacity: 0;
+    transition: top 0.2s ease, bottom 0.2s ease, opacity 0.15s ease-in;
+
+    &.is-positioned {
+      opacity: 1;
+    }
 
     a {
       color: var(--primary-medium);
