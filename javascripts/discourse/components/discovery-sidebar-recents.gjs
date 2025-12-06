@@ -29,9 +29,9 @@ export default class DiscoverySidebarRecents extends Component {
   }
 
   <template>
-    <aside class="discovery-sidebar-recents" {{positionFixedToColumn}}>
+    <aside class="discovery-sidebar discovery-sidebar-recents" {{positionFixedToColumn}}>
       <div class="discovery-sidebar__content">
-        <h3 class="discovery-sidebar-recents__title">Recently Viewed</h3>
+        <h3>Recently Viewed</h3>
         {{#if this.recentTopics.length}}
           <ul class="discovery-sidebar-recents__list">
             {{#each this.recentTopics as |topic|}}
@@ -43,7 +43,7 @@ export default class DiscoverySidebarRecents extends Component {
             {{/each}}
           </ul>
         {{else}}
-          <p class="discovery-sidebar-recents__empty">No recently viewed topics</p>
+          <p>No recently viewed topics</p>
         {{/if}}
       </div>
     </aside>

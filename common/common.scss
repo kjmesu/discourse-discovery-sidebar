@@ -96,6 +96,35 @@
   }
 }
 
+// Recently viewed topics list
+.discovery-sidebar-recents {
+  .discovery-sidebar-recents__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .discovery-sidebar-recents__item {
+    margin: 0 0 0.75em 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .discovery-sidebar-recents__link {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: var(--font-0);
+    line-height: var(--line-height-medium);
+    display: block;
+
+    &:hover {
+      color: var(--tertiary);
+    }
+  }
+}
+
 @media (max-width: 1000px) {
   .list-container .row.full-width:has(.discovery-sidebar) {
     flex-direction: column;
