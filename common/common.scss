@@ -108,22 +108,111 @@
   }
 
   .discovery-sidebar-recents__item {
-    margin: 0 0 0.75em 0;
+    margin: 0 0 1em 0;
 
     &:last-child {
       margin-bottom: 0;
     }
   }
 
-  .discovery-sidebar-recents__link {
-    color: var(--primary);
+  .discovery-sidebar-recents__card {
+    display: flex;
+    gap: 0.75em;
     text-decoration: none;
-    font-size: var(--font-0);
-    line-height: var(--line-height-medium);
-    display: block;
+    color: var(--primary);
+    padding: 0.75em;
+    border-radius: 0.5em;
+    background: var(--primary-very-low);
+    transition: background 0.15s ease;
 
     &:hover {
-      color: var(--tertiary);
+      background: var(--primary-low);
+    }
+  }
+
+  .discovery-sidebar-recents__info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  .discovery-sidebar-recents__header {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: var(--font-down-1);
+    color: var(--primary-medium);
+  }
+
+  .discovery-sidebar-recents__avatar {
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .discovery-sidebar-recents__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.35em;
+    min-width: 0;
+  }
+
+  .discovery-sidebar-recents__username {
+    font-weight: 500;
+    color: var(--primary-high);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .discovery-sidebar-recents__separator {
+    color: var(--primary-low-mid);
+    flex-shrink: 0;
+  }
+
+  .discovery-sidebar-recents__age {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .discovery-sidebar-recents__title {
+    margin: 0;
+    font-size: var(--font-0);
+    font-weight: 500;
+    line-height: var(--line-height-medium);
+    color: var(--primary);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .discovery-sidebar-recents__stats {
+    display: flex;
+    align-items: center;
+    gap: 0.35em;
+    font-size: var(--font-down-1);
+    color: var(--primary-medium);
+  }
+
+  .discovery-sidebar-recents__stat {
+    white-space: nowrap;
+  }
+
+  .discovery-sidebar-recents__thumbnail {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 0.5em;
+    overflow: hidden;
+    background: var(--primary-low);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }
