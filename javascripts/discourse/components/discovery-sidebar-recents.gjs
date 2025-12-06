@@ -30,11 +30,11 @@ export default class DiscoverySidebarRecents extends Component {
     }
   }
 
-  getPoster(topic) {
+  getPoster = (topic) => {
     return topic.posters?.[0] || null;
   }
 
-  getAvatarUrl(topic) {
+  getAvatarUrl = (topic) => {
     const poster = this.getPoster(topic);
     if (!poster?.avatar_template) {
       return null;
@@ -43,12 +43,12 @@ export default class DiscoverySidebarRecents extends Component {
     return poster.avatar_template.replace("{size}", "48");
   }
 
-  getUsername(topic) {
+  getUsername = (topic) => {
     const poster = this.getPoster(topic);
     return poster?.username || "";
   }
 
-  getThumbnailUrl(topic) {
+  getThumbnailUrl = (topic) => {
     // Try different thumbnail sources
     if (topic.thumbnails && topic.thumbnails.length > 0) {
       // Look for a thumbnail around 200px width
