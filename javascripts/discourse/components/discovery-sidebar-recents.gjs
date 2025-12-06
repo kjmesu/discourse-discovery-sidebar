@@ -91,10 +91,8 @@ export default class DiscoverySidebarRecents extends Component {
                     </div>
                     <h4 class="discovery-sidebar-recents__title">{{topic.fancy_title}}</h4>
                     <div class="discovery-sidebar-recents__stats">
-                      {{#if topic.post_votes_first_post_count}}
-                        <span class="discovery-sidebar-recents__stat">{{topic.post_votes_first_post_count}} upvotes</span>
-                        <span class="discovery-sidebar-recents__separator">•</span>
-                      {{/if}}
+                      <span class="discovery-sidebar-recents__stat">{{topic.post_votes_first_post_count}} upvotes</span>
+                      <span class="discovery-sidebar-recents__separator">•</span>
                       <span class="discovery-sidebar-recents__stat">{{topic.reply_count}} comments</span>
                     </div>
                   </div>
