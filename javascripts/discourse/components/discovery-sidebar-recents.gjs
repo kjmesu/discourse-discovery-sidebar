@@ -3,7 +3,6 @@ import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 import ageWithTooltip from "discourse/helpers/age-with-tooltip";
-import positionFixedToColumn from "../modifiers/position-fixed-to-column";
 
 export default class DiscoverySidebarRecents extends Component {
   @service router;
@@ -60,7 +59,7 @@ export default class DiscoverySidebarRecents extends Component {
   }
 
   <template>
-    <aside class="discovery-sidebar discovery-sidebar-recents" {{positionFixedToColumn}}>
+    <aside class="discovery-sidebar discovery-sidebar-recents">
       <div class="discovery-sidebar__content">
         <h3>Recently Viewed</h3>
         {{#if this.recentTopics.length}}

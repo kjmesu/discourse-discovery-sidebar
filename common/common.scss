@@ -18,53 +18,43 @@
     order: 1;
   }
 
-  // Sidebar column wrapper - for positioning reference
+  // Sidebar column wrapper - scrollable container for all sidebar elements
   .discovery-sidebar-column {
     flex: 0 0 auto;
     width: 300px;
     min-width: 300px;
     order: 2;
-  }
-
-  // Top sidebar - fixed to top of viewport, positioned by JS modifier
-  .discovery-sidebar {
-    position: fixed;
-    width: 300px;
-    max-width: 300px;
-    // padding: 1.25em;
-    // border: 1px solid var(--primary-low);
-    border-radius: 0.75em;
-    background: var(--secondary);
-    max-height: calc(100vh - var(--header-offset, 60px) - 2em);
+    position: sticky;
+    top: calc(var(--header-offset, 60px) + 1em);
+    max-height: calc(100vh - var(--header-offset, 60px) - 1em);
     overflow-y: auto;
     overflow-x: hidden;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.15s ease-in;
-    box-sizing: border-box;
-
-    &.is-positioned {
-      opacity: 1;
-    }
+    display: flex;
+    flex-direction: column;
   }
 
-  // Footer sidebar - sticky to bottom with smart overflow behavior, positioned by JS modifier
+  // Top sidebar - static within scrollable column
+  .discovery-sidebar {
+    width: 100%;
+    border-radius: 0.75em;
+    background: var(--secondary);
+    box-sizing: border-box;
+    flex-shrink: 0;
+    margin-bottom: 1em;
+  }
+
+  // Footer sidebar - sticky to bottom of scrollable column, part of natural flow
   .discovery-sidebar-footer {
-    position: fixed;
-    // bottom position now controlled by JS modifier for smart overflow behavior
-    width: 300px;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
     padding: 1.25em;
     background: var(--secondary);
-    z-index: 10;
     font-size: var(--font-down-2);
     color: var(--primary-medium);
     line-height: var(--line-height-small);
-    opacity: 0;
-    transition: top 0.2s ease, bottom 0.2s ease, opacity 0.15s ease-in;
-
-    &.is-positioned {
-      opacity: 1;
-    }
+    margin-top: auto;
+    flex-shrink: 0;
 
     a {
       color: var(--primary-medium);
@@ -108,6 +98,13 @@
 
 // Recently viewed topics list
 .discovery-sidebar-recents {
+  width: 100%;
+  border-radius: 0.75em;
+  background: var(--secondary);
+  box-sizing: border-box;
+  flex-shrink: 0;
+  margin-bottom: 1em;
+
   .discovery-sidebar-recents__list {
     list-style: none;
     margin: 0;

@@ -1,9 +1,8 @@
 import Component from "@glimmer/component";
-import positionFixedToColumn from "../modifiers/position-fixed-to-column";
 
 export default class DiscoverySidebarFooter extends Component {
   <template>
-    <aside class="discovery-sidebar-footer" {{positionFixedToColumn}}>
+    <aside class="discovery-sidebar-footer">
       <nav class="discovery-sidebar__content">
         <a href="/tos">Terms of Service</a>
         <span class="discovery-sidebar__separator">|</span>
