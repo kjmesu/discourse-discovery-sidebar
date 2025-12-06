@@ -26,8 +26,7 @@
     order: 2;
     position: sticky;
     top: calc(var(--header-offset, 60px) + 1em);
-    min-height: calc(100vh - var(--header-offset, 60px) - 1em);
-    max-height: calc(100vh - var(--header-offset, 60px) - 1em);
+    height: calc(100vh - var(--header-offset, 60px) - 1em);
     overflow-y: auto;
     overflow-x: hidden;
     display: flex;
@@ -64,6 +63,7 @@
     font-size: var(--font-down-2);
     color: var(--primary-medium);
     line-height: var(--line-height-small);
+    margin-top: auto;
     flex-shrink: 0;
 
     a {
