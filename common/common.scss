@@ -18,43 +18,55 @@
     order: 1;
   }
 
-  // Sidebar column wrapper - scrollable container for all sidebar elements
+  // Sidebar column wrapper - container for all sidebar elements
   .discovery-sidebar-column {
     flex: 0 0 auto;
     width: 300px;
     min-width: 300px;
     order: 2;
-    position: sticky;
-    top: calc(var(--header-offset, 60px) + 1em);
-    max-height: calc(100vh - var(--header-offset, 60px) - 1em);
-    overflow-y: auto;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
+    position: relative;
+    // Column will grow to accommodate content or shrink for sticky footer
   }
 
-  // Top sidebar - static within scrollable column
+  // Top sidebar - sticky to top of viewport
   .discovery-sidebar {
+    position: sticky;
+    top: calc(var(--header-offset, 60px) + 1em);
     width: 100%;
     border-radius: 0.75em;
     background: var(--secondary);
     box-sizing: border-box;
-    flex-shrink: 0;
     margin-bottom: 1em;
+    max-height: calc(100vh - var(--header-offset, 60px) - 10em);
+    overflow-y: auto;
+    z-index: 1;
   }
 
-  // Footer sidebar - sticky to bottom of scrollable column, part of natural flow
+  // Recently viewed sidebar - also sticky, positioned below main sidebar
+  .discovery-sidebar-recents {
+    position: sticky;
+    top: calc(var(--header-offset, 60px) + 1em);
+    width: 100%;
+    border-radius: 0.75em;
+    background: var(--secondary);
+    box-sizing: border-box;
+    margin-bottom: 1em;
+    max-height: calc(100vh - var(--header-offset, 60px) - 10em);
+    overflow-y: auto;
+    z-index: 1;
+  }
+
+  // Footer sidebar - sticky to bottom of viewport, visible when scrolling column
   .discovery-sidebar-footer {
     position: sticky;
-    bottom: 0;
+    bottom: 1em;
     width: 100%;
     padding: 1.25em;
     background: var(--secondary);
     font-size: var(--font-down-2);
     color: var(--primary-medium);
     line-height: var(--line-height-small);
-    margin-top: auto;
-    flex-shrink: 0;
+    z-index: 2;
 
     a {
       color: var(--primary-medium);
@@ -96,15 +108,8 @@
   }
 }
 
-// Recently viewed topics list
+// Recently viewed topics list styles
 .discovery-sidebar-recents {
-  width: 100%;
-  border-radius: 0.75em;
-  background: var(--secondary);
-  box-sizing: border-box;
-  flex-shrink: 0;
-  margin-bottom: 1em;
-
   .discovery-sidebar-recents__list {
     list-style: none;
     margin: 0;
