@@ -26,22 +26,33 @@ export default class PositionFixedToColumn extends Modifier {
     const rect = column.getBoundingClientRect();
     this.element.style.left = `${rect.left}px`;
 
-    // If this is the top sidebar, set top position relative to navigation
+    // Handle sidebars (excluding footer)
     if (this.element.classList.contains("discovery-sidebar")) {
       const navContainer = document.querySelector(".navigation-container");
       const headerOffset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-offset') || '60');
 
+      let topPosition;
+
       if (navContainer) {
         const navRect = navContainer.getBoundingClientRect();
         // If nav is below the header, position below nav. Otherwise, below header
-        const topPosition = navRect.bottom > headerOffset
-          ? `${navRect.bottom + 16}px`
-          : `${headerOffset + 16}px`;
-
-        this.element.style.top = topPosition;
+        topPosition = navRect.bottom > headerOffset
+          ? navRect.bottom + 16
+          : headerOffset + 16;
       } else {
-        this.element.style.top = `${headerOffset + 16}px`;
+        topPosition = headerOffset + 16;
       }
+
+      // If this is the recents sidebar, position it below the main sidebar
+      if (this.element.classList.contains("discovery-sidebar-recents")) {
+        const mainSidebar = column.querySelector(".discovery-sidebar:not(.discovery-sidebar-recents)");
+        if (mainSidebar) {
+          const mainRect = mainSidebar.getBoundingClientRect();
+          topPosition = mainRect.bottom + 16;
+        }
+      }
+
+      this.element.style.top = `${topPosition}px`;
 
       // Make visible after positioning
       this.element.classList.add("is-positioned");
