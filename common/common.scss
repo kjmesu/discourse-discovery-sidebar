@@ -18,7 +18,7 @@
     order: 1;
   }
 
-  // Sidebar column wrapper - independent sticky container with its own scroll
+  // Sidebar column wrapper - container for content and footer
   .discovery-sidebar-column {
     flex: 0 0 auto;
     width: 300px;
@@ -27,33 +27,37 @@
     position: sticky;
     top: calc(var(--header-offset, 60px) + 1em);
     height: calc(100vh - var(--header-offset, 60px) - 1em);
-    overflow-y: auto;
-    overflow-x: hidden;
     display: flex;
     flex-direction: column;
   }
 
-  // Top sidebar - static within the scrollable column
+  // Content wrapper - scrollable area for main sidebar and recents
+  .discovery-sidebar-content-wrapper {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0; // Important for flex scrolling
+  }
+
+  // Top sidebar - static within the scrollable content wrapper
   .discovery-sidebar {
     width: 100%;
     border-radius: 0.75em;
     background: var(--secondary);
     box-sizing: border-box;
-    flex-shrink: 0;
     margin-bottom: 1em;
   }
 
-  // Recently viewed sidebar - static within the scrollable column
+  // Recently viewed sidebar - static within the scrollable content wrapper
   .discovery-sidebar-recents {
     width: 100%;
     border-radius: 0.75em;
     background: var(--secondary);
     box-sizing: border-box;
-    flex-shrink: 0;
     margin-bottom: 1em;
   }
 
-  // Footer sidebar - sticky to bottom of the scrollable column
+  // Footer sidebar - sticky to bottom, outside scrollable content
   .discovery-sidebar-footer {
     position: sticky;
     bottom: 0;
@@ -63,7 +67,6 @@
     font-size: var(--font-down-2);
     color: var(--primary-medium);
     line-height: var(--line-height-small);
-    margin-top: auto;
     flex-shrink: 0;
 
     a {
