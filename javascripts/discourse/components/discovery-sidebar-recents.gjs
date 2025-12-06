@@ -35,6 +35,10 @@ export default class DiscoverySidebarRecents extends Component {
                 user = this.store.createRecord("user", userData);
               }
             }
+            // Debug log to see thumbnail structure
+            if (topic.thumbnails) {
+              console.log("Topic thumbnails:", topic.id, topic.thumbnails);
+            }
             return { ...topic, user };
           })
         );
@@ -46,7 +50,18 @@ export default class DiscoverySidebarRecents extends Component {
   }
 
   getThumbnailUrl(topic) {
-    return topic.thumbnails?.[0]?.url || null;
+    // Try different thumbnail sources
+    if (topic.thumbnails && topic.thumbnails.length > 0) {
+      // Look for common thumbnail sizes
+      const thumbnail = topic.thumbnails.find(t => t.max_width === 200 || t.max_width === 250)
+                     || topic.thumbnails[0];
+      return thumbnail?.url || null;
+    }
+    // Fallback to image_url if available
+    if (topic.image_url) {
+      return topic.image_url;
+    }
+    return null;
   }
 
   <template>
