@@ -50,8 +50,10 @@ export default class DiscoverySidebarRecents extends Component {
   getThumbnailUrl = (topic) => {
     // Try different thumbnail sources
     if (topic.thumbnails && topic.thumbnails.length > 0) {
-      // Look for a thumbnail around 200px width
-      const thumbnail = topic.thumbnails.find(t => t.max_width >= 200 && t.max_width <= 300)
+      // Display is 80px, so look for smallest thumbnail that's at least 80px wide
+      // Prefer 1x size (~80-120px) over larger versions to save bandwidth
+      const thumbnail = topic.thumbnails.find(t => t.max_width >= 80 && t.max_width <= 120)
+                     || topic.thumbnails.find(t => t.max_width >= 80)
                      || topic.thumbnails[0];
       return thumbnail?.url || null;
     }
