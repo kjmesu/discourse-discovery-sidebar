@@ -58,6 +58,15 @@ export default class DiscoverySidebarRecents extends Component {
     return null;
   }
 
+  getCommentCount = (topic) => {
+    // posts_count includes the OP, so subtract 1 to get only comments (posts + replies)
+    return Math.max(0, (topic.posts_count || 0) - 1);
+  }
+
+  pluralize = (count, word) => {
+    return count === 1 ? word : `${word}s`;
+  }
+
   <template>
     <aside class="discovery-sidebar discovery-sidebar-recents">
       <div class="discovery-sidebar__content">
@@ -90,9 +99,9 @@ export default class DiscoverySidebarRecents extends Component {
                     {{/if}}
                   </div>
                   <div class="discovery-sidebar-recents__stats">
-                    <span class="discovery-sidebar-recents__stat">{{topic.post_votes_first_post_count}} upvotes</span>
+                    <span class="discovery-sidebar-recents__stat">{{topic.post_votes_first_post_count}} {{this.pluralize topic.post_votes_first_post_count "upvote"}}</span>
                     <span class="discovery-sidebar-recents__separator">•</span>
-                    <span class="discovery-sidebar-recents__stat">{{topic.reply_count}} comments</span>
+                    <span class="discovery-sidebar-recents__stat">{{this.getCommentCount topic}} {{this.pluralize (this.getCommentCount topic) "comment"}}</span>
                   </div>
                 </a>
               </li>
