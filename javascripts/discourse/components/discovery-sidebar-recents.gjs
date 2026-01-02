@@ -66,7 +66,7 @@ export default class DiscoverySidebarRecents extends Component {
   }
 
   pluralize = (count, word) => {
-    return count === 1 ? word : `${word}s`;
+    return Math.abs(count) === 1 ? word : `${word}s`;
   }
 
   <template>
