@@ -1,0 +1,19 @@
+en:
+  theme_metadata:
+    description: Adds a sidebar displaying recently viewed topics with thumbnails and metadata
+  dates:
+    x_minutes:
+      one: "%{count}m ago"
+      other: "%{count}m ago"
+    x_hours:
+      one: "%{count}h ago"
+      other: "%{count}h ago"
+    x_days:
+      one: "%{count}d ago"
+      other: "%{count}d ago"
+    x_months:
+      one: "%{count}mo ago"
+      other: "%{count}mo ago"
+    x_years:
+      one: "%{count}y ago"
+      other: "%{count}y ago"

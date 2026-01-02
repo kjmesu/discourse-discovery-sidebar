@@ -2,7 +2,7 @@ import Component from "@glimmer/component";
 import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
-import ageWithTooltip from "discourse/helpers/age-with-tooltip";
+import formatDateAlwaysRelative from "../helpers/format-date-always-relative";
 
 export default class DiscoverySidebarRecents extends Component {
   @service router;
@@ -88,7 +88,7 @@ export default class DiscoverySidebarRecents extends Component {
                           <span class="discovery-sidebar-recents__meta">
                             <span class="discovery-sidebar-recents__username">{{this.getUsername topic}}</span>
                             <span class="discovery-sidebar-recents__separator">•</span>
-                            <span class="discovery-sidebar-recents__age">{{ageWithTooltip topic.created_at}}</span>
+                            <span class="discovery-sidebar-recents__age">{{formatDateAlwaysRelative topic.created_at}}</span>
                           </span>
                         </div>
                       {{/if}}

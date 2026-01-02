@@ -1,24 +1,20 @@
 discovery_sidebar_enabled:
-  default: true
+  default: false
   client: true
 
 discovery_sidebar_content:
   default: |
     ### I'm a sidebar!
 
-    This is here to let you know that MSJ is gay.
-
-    That is all.
-
-    Carry on.
+    This is important information.
   type: string
   textarea: true
   client: true
 
 discovery_sidebar_footer_enabled:
-  default: true
+  default: false
   client: true
 
 discovery_sidebar_recents_enabled:
-  default: true
+  default: false
   client: true
