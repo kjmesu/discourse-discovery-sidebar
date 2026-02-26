@@ -1,4 +1,5 @@
 import Component from "@glimmer/component";
+import { htmlSafe } from "@ember/template";
 import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
@@ -92,7 +93,7 @@ export default class DiscoverySidebarRecents extends Component {
                           </span>
                         </div>
                       {{/if}}
-                      <h4 class="discovery-sidebar-recents__title">{{topic.fancy_title}}</h4>
+                      <h4 class="discovery-sidebar-recents__title">{{htmlSafe topic.fancy_title}}</h4>
                     </div>
                     {{#if (this.getThumbnailUrl topic)}}
                       <div class="discovery-sidebar-recents__thumbnail">
