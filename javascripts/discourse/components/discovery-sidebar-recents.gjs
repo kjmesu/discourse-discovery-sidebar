@@ -18,12 +18,11 @@ export default class DiscoverySidebarRecents extends Component {
   @action
   async loadRecentTopics() {
     try {
-      // Fetch the topic list which includes recently_viewed from the user-data-api plugin
-      const response = await fetch("/latest.json");
+      const response = await fetch("/user-recently-viewed");
       const data = await response.json();
 
-      if (data.topic_list?.recently_viewed) {
-        this.recentTopics = data.topic_list.recently_viewed;
+      if (data.recently_viewed) {
+        this.recentTopics = data.recently_viewed;
       }
     } catch (error) {
       console.error("Failed to load recent topics:", error);
